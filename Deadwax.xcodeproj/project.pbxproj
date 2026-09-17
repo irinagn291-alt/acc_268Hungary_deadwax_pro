@@ -1,0 +1,672 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 77;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		03CF768EA6D43904FC3DBAF2 /* Grade.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA15ACF7AB800D2A68274D51 /* Grade.swift */; };
+		11A698487F955117423AE0D4 /* Pressing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02D2DC8B8782FBAAF0F1BA7D /* Pressing.swift */; };
+		12A514F263E7BF57B97E194F /* WallSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA4B3BB8C4736A7ECD13C17A /* WallSettings.swift */; };
+		1427B279E08D6FD64513C5FA /* TasteFold.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE66E0D3857B9218AF2DD4FB /* TasteFold.swift */; };
+		17DFE0199A8B7C850BFB3F96 /* TasteProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F3749589332D1EDF86B7E2B /* TasteProfile.swift */; };
+		20EE882063A4B5B72D135BE4 /* WallChromeShell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AA5FD5802D15126FD35C5E5 /* WallChromeShell.swift */; };
+		2216D24A56E1B5DDB98E7E0B /* EmptySleevePage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E04A916F47B75160E9D195B /* EmptySleevePage.swift */; };
+		3A3FF9E82A1B4DF519FFAE14 /* SleeveCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D3879AFFFB154977BF35A69 /* SleeveCode.swift */; };
+		3D475676A684EFE90BB07C0D /* CrateFold.swift in Sources */ = {isa = PBXBuildFile; fileRef = D71F4D271521373D94B460CC /* CrateFold.swift */; };
+		3D8497D4C9757A14E5150C57 /* SleeveOnboarding.swift in Sources */ = {isa = PBXBuildFile; fileRef = E47342F30FA4D977B8ACC425 /* SleeveOnboarding.swift */; };
+		41129AB6CC11EAEEC3D98ACA /* CatalogClientTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F6AFE2A0AA13998629D9BE4 /* CatalogClientTests.swift */; };
+		41BAC9028D07930544046E1D /* PlayTileBoard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B9329DCBCF376B90BCE5A2B /* PlayTileBoard.swift */; };
+		4913FED33FEDDDDE5F5F8103 /* DeadwaxApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0C6390A43072B491642D624 /* DeadwaxApp.swift */; };
+		606FEFC82953941ED338124F /* SleeveScan.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBCBEDE6AC0B652B15F96C3C /* SleeveScan.swift */; };
+		621D837AF2745DB46AF092C2 /* SleeveFront.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D434DAE889E4D0B544BFAEF /* SleeveFront.swift */; };
+		629CE32DCD4D0EB7BF17EACF /* CatalogClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB17B2E7E1B11E042802E2E3 /* CatalogClient.swift */; };
+		637E50B48176B0DE7D576F2D /* CatalogSeek.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A37BE9A8005B1188AB779A3 /* CatalogSeek.swift */; };
+		65CABD21E673F1C60FA03932 /* GrooveFlip.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B7AEE56D196E0B92332D14F /* GrooveFlip.swift */; };
+		6A43DAD608EBD375F28DD644 /* SleeveTile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2226FBBFD5A46B7686AB9927 /* SleeveTile.swift */; };
+		6F99C45679359137DF357B4F /* WallDeepLinkTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0054D67B8635159EB4500DC2 /* WallDeepLinkTests.swift */; };
+		799BF4ED150DC679F7FF6910 /* GrooveMark.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEEF8C3E8F238AF41517BB15 /* GrooveMark.swift */; };
+		7A52CAB9E384D1346611D25D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06AB941D49F1F94A48B8BEB6 /* AppDelegate.swift */; };
+		7B617B9AB113373B71DDA302 /* WallDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31FFAA52C6D0E60FD0C276EC /* WallDocument.swift */; };
+		8A0CB29789CE140D92478DD7 /* WallBloom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AAF867355FFEAD8B00CEC27 /* WallBloom.swift */; };
+		8AD6A843759644C194CD36B3 /* APIConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF1EBEAAA8527D8477EDD603 /* APIConfig.swift */; };
+		8B9D3EAEB1DB12C3094A0485 /* Groove.swift in Sources */ = {isa = PBXBuildFile; fileRef = 832F7B3EBCB4A41504F27DE5 /* Groove.swift */; };
+		8F4BA2FCE4A530F2EE94F997 /* DeadwaxTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97861939D67F6C774B0DA1A3 /* DeadwaxTests.swift */; };
+		90FFF5CF07993791DA593146 /* SeenWalk.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01E689F03CDF810052987F78 /* SeenWalk.swift */; };
+		9B3457094788566C499A2FBE /* WallVault.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44F5A3ED73F10E931F5FD204 /* WallVault.swift */; };
+		A145CD686905CB3E016E1B74 /* WallDay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A29FCC1E57C41FC72A7A56B /* WallDay.swift */; };
+		B44725FB9685C911BA5969D3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D3AC7D22F6C0AB711FA81E9C /* Assets.xcassets */; };
+		BA7B785DB88F1F8DBBB8C301 /* WallChrome.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77E209894F0BCA455D235908 /* WallChrome.swift */; };
+		BE818EB2FA3F9598AC8D64C1 /* WallStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6B8BE837AF3C13B0794736C /* WallStore.swift */; };
+		C01FDA6BBD65F6CF561B5BD6 /* DiscoverWall.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AA783B171B760070E85591E /* DiscoverWall.swift */; };
+		C13B3B2E627EEBBCB17CB00F /* ReviewLane.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F1AF20E24578877C3BF2442 /* ReviewLane.swift */; };
+		D0D2445D52A16D63F524DAC3 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 146C4B22E06D1089CABF67A9 /* ContentView.swift */; };
+		D6F2777A73DFBE2528DEC982 /* WallDeepLink.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7D70EFE157FD09148F6A243 /* WallDeepLink.swift */; };
+		DCCDBAA0BF383AE05284CFBC /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 9D87920A32B20A845BD2F467 /* Alamofire */; };
+		DEBB5BA0C091615ED1DF4DCB /* WallVaultTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78298778BF975475E2AA8091 /* WallVaultTests.swift */; };
+		E8720E4543B3E1774B95F3DC /* WallIntents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C3AF2B7CA13CE1F0F53EB47 /* WallIntents.swift */; };
+		F4E9E3EBDC887A0E06A943D0 /* NeedlePress.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C7E69DCCACD0E56471DBD18 /* NeedlePress.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		06A0B3ADFFDA4837B2C36AD2 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 635070C77AEF6165503FE7EF /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 36B7BAE280411366750505D6;
+			remoteInfo = Deadwax;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		0054D67B8635159EB4500DC2 /* WallDeepLinkTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WallDeepLinkTests.swift; sourceTree = "<group>"; };
+		01E689F03CDF810052987F78 /* SeenWalk.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeenWalk.swift; sourceTree = "<group>"; };
+		02D2DC8B8782FBAAF0F1BA7D /* Pressing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pressing.swift; sourceTree = "<group>"; };
+		06AB941D49F1F94A48B8BEB6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		0AA783B171B760070E85591E /* DiscoverWall.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoverWall.swift; sourceTree = "<group>"; };
+		0B9329DCBCF376B90BCE5A2B /* PlayTileBoard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayTileBoard.swift; sourceTree = "<group>"; };
+		0D434DAE889E4D0B544BFAEF /* SleeveFront.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SleeveFront.swift; sourceTree = "<group>"; };
+		146C4B22E06D1089CABF67A9 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		1F6AFE2A0AA13998629D9BE4 /* CatalogClientTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatalogClientTests.swift; sourceTree = "<group>"; };
+		2226FBBFD5A46B7686AB9927 /* SleeveTile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SleeveTile.swift; sourceTree = "<group>"; };
+		2A29FCC1E57C41FC72A7A56B /* WallDay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WallDay.swift; sourceTree = "<group>"; };
+		31FFAA52C6D0E60FD0C276EC /* WallDocument.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WallDocument.swift; sourceTree = "<group>"; };
+		44F5A3ED73F10E931F5FD204 /* WallVault.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WallVault.swift; sourceTree = "<group>"; };
+		4E04A916F47B75160E9D195B /* EmptySleevePage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptySleevePage.swift; sourceTree = "<group>"; };
+		4F3749589332D1EDF86B7E2B /* TasteProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TasteProfile.swift; sourceTree = "<group>"; };
+		5A37BE9A8005B1188AB779A3 /* CatalogSeek.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatalogSeek.swift; sourceTree = "<group>"; };
+		5B7AEE56D196E0B92332D14F /* GrooveFlip.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GrooveFlip.swift; sourceTree = "<group>"; };
+		6C3AF2B7CA13CE1F0F53EB47 /* WallIntents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WallIntents.swift; sourceTree = "<group>"; };
+		757F553F1572137690D07B9E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		77E209894F0BCA455D235908 /* WallChrome.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WallChrome.swift; sourceTree = "<group>"; };
+		78298778BF975475E2AA8091 /* WallVaultTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WallVaultTests.swift; sourceTree = "<group>"; };
+		832F7B3EBCB4A41504F27DE5 /* Groove.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Groove.swift; sourceTree = "<group>"; };
+		8AA5FD5802D15126FD35C5E5 /* WallChromeShell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WallChromeShell.swift; sourceTree = "<group>"; };
+		8AAF867355FFEAD8B00CEC27 /* WallBloom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WallBloom.swift; sourceTree = "<group>"; };
+		8F1AF20E24578877C3BF2442 /* ReviewLane.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewLane.swift; sourceTree = "<group>"; };
+		97861939D67F6C774B0DA1A3 /* DeadwaxTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeadwaxTests.swift; sourceTree = "<group>"; };
+		9C7E69DCCACD0E56471DBD18 /* NeedlePress.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NeedlePress.swift; sourceTree = "<group>"; };
+		9D3879AFFFB154977BF35A69 /* SleeveCode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SleeveCode.swift; sourceTree = "<group>"; };
+		AA15ACF7AB800D2A68274D51 /* Grade.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Grade.swift; sourceTree = "<group>"; };
+		AE66E0D3857B9218AF2DD4FB /* TasteFold.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TasteFold.swift; sourceTree = "<group>"; };
+		BCE203D81858BB7980335485 /* DeadwaxTests.xctest */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.cfbundle; path = DeadwaxTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		CBCBEDE6AC0B652B15F96C3C /* SleeveScan.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SleeveScan.swift; sourceTree = "<group>"; };
+		D0C6390A43072B491642D624 /* DeadwaxApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeadwaxApp.swift; sourceTree = "<group>"; };
+		D3AC7D22F6C0AB711FA81E9C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		D71F4D271521373D94B460CC /* CrateFold.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CrateFold.swift; sourceTree = "<group>"; };
+		D7D70EFE157FD09148F6A243 /* WallDeepLink.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WallDeepLink.swift; sourceTree = "<group>"; };
+		DEEF8C3E8F238AF41517BB15 /* GrooveMark.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GrooveMark.swift; sourceTree = "<group>"; };
+		E47342F30FA4D977B8ACC425 /* SleeveOnboarding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SleeveOnboarding.swift; sourceTree = "<group>"; };
+		E6B8BE837AF3C13B0794736C /* WallStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WallStore.swift; sourceTree = "<group>"; };
+		E76EB3E7ED6D42736212F958 /* Deadwax.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = Deadwax.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		EB17B2E7E1B11E042802E2E3 /* CatalogClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatalogClient.swift; sourceTree = "<group>"; };
+		FA4B3BB8C4736A7ECD13C17A /* WallSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WallSettings.swift; sourceTree = "<group>"; };
+		FF1EBEAAA8527D8477EDD603 /* APIConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIConfig.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		6D434B76F2F80EA4044DB91B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DCCDBAA0BF383AE05284CFBC /* Alamofire in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		244A335B7E818124E7604683 = {
+			isa = PBXGroup;
+			children = (
+				624518ADBD6F6AF440B68154 /* Deadwax */,
+				971A89B033E5BFD766C9273A /* DeadwaxTests */,
+				7AB951DAEA1D60DC2F9CA985 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		624518ADBD6F6AF440B68154 /* Deadwax */ = {
+			isa = PBXGroup;
+			children = (
+				FF1EBEAAA8527D8477EDD603 /* APIConfig.swift */,
+				06AB941D49F1F94A48B8BEB6 /* AppDelegate.swift */,
+				D3AC7D22F6C0AB711FA81E9C /* Assets.xcassets */,
+				146C4B22E06D1089CABF67A9 /* ContentView.swift */,
+				D0C6390A43072B491642D624 /* DeadwaxApp.swift */,
+				757F553F1572137690D07B9E /* Info.plist */,
+				C294335624A8E07F0B6C87A9 /* Grade */,
+				90E675D9F6E1F6A1F580C440 /* Groove */,
+				913452E29707300CC860AD4F /* GrooveMark */,
+				69EFBAA3124F96E8F873A550 /* Pressing */,
+				EB05B64181D81B1C53D751C0 /* Wall */,
+			);
+			path = Deadwax;
+			sourceTree = "<group>";
+		};
+		69EFBAA3124F96E8F873A550 /* Pressing */ = {
+			isa = PBXGroup;
+			children = (
+				EB17B2E7E1B11E042802E2E3 /* CatalogClient.swift */,
+				02D2DC8B8782FBAAF0F1BA7D /* Pressing.swift */,
+				9D3879AFFFB154977BF35A69 /* SleeveCode.swift */,
+				0D434DAE889E4D0B544BFAEF /* SleeveFront.swift */,
+				2226FBBFD5A46B7686AB9927 /* SleeveTile.swift */,
+			);
+			path = Pressing;
+			sourceTree = "<group>";
+		};
+		7AB951DAEA1D60DC2F9CA985 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				E76EB3E7ED6D42736212F958 /* Deadwax.app */,
+				BCE203D81858BB7980335485 /* DeadwaxTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		90E675D9F6E1F6A1F580C440 /* Groove */ = {
+			isa = PBXGroup;
+			children = (
+				832F7B3EBCB4A41504F27DE5 /* Groove.swift */,
+			);
+			path = Groove;
+			sourceTree = "<group>";
+		};
+		913452E29707300CC860AD4F /* GrooveMark */ = {
+			isa = PBXGroup;
+			children = (
+				DEEF8C3E8F238AF41517BB15 /* GrooveMark.swift */,
+			);
+			path = GrooveMark;
+			sourceTree = "<group>";
+		};
+		971A89B033E5BFD766C9273A /* DeadwaxTests */ = {
+			isa = PBXGroup;
+			children = (
+				1F6AFE2A0AA13998629D9BE4 /* CatalogClientTests.swift */,
+				97861939D67F6C774B0DA1A3 /* DeadwaxTests.swift */,
+				0054D67B8635159EB4500DC2 /* WallDeepLinkTests.swift */,
+				78298778BF975475E2AA8091 /* WallVaultTests.swift */,
+			);
+			path = DeadwaxTests;
+			sourceTree = "<group>";
+		};
+		C294335624A8E07F0B6C87A9 /* Grade */ = {
+			isa = PBXGroup;
+			children = (
+				AA15ACF7AB800D2A68274D51 /* Grade.swift */,
+			);
+			path = Grade;
+			sourceTree = "<group>";
+		};
+		EB05B64181D81B1C53D751C0 /* Wall */ = {
+			isa = PBXGroup;
+			children = (
+				5A37BE9A8005B1188AB779A3 /* CatalogSeek.swift */,
+				D71F4D271521373D94B460CC /* CrateFold.swift */,
+				0AA783B171B760070E85591E /* DiscoverWall.swift */,
+				4E04A916F47B75160E9D195B /* EmptySleevePage.swift */,
+				5B7AEE56D196E0B92332D14F /* GrooveFlip.swift */,
+				9C7E69DCCACD0E56471DBD18 /* NeedlePress.swift */,
+				0B9329DCBCF376B90BCE5A2B /* PlayTileBoard.swift */,
+				8F1AF20E24578877C3BF2442 /* ReviewLane.swift */,
+				01E689F03CDF810052987F78 /* SeenWalk.swift */,
+				E47342F30FA4D977B8ACC425 /* SleeveOnboarding.swift */,
+				CBCBEDE6AC0B652B15F96C3C /* SleeveScan.swift */,
+				AE66E0D3857B9218AF2DD4FB /* TasteFold.swift */,
+				4F3749589332D1EDF86B7E2B /* TasteProfile.swift */,
+				8AAF867355FFEAD8B00CEC27 /* WallBloom.swift */,
+				77E209894F0BCA455D235908 /* WallChrome.swift */,
+				8AA5FD5802D15126FD35C5E5 /* WallChromeShell.swift */,
+				2A29FCC1E57C41FC72A7A56B /* WallDay.swift */,
+				D7D70EFE157FD09148F6A243 /* WallDeepLink.swift */,
+				31FFAA52C6D0E60FD0C276EC /* WallDocument.swift */,
+				6C3AF2B7CA13CE1F0F53EB47 /* WallIntents.swift */,
+				FA4B3BB8C4736A7ECD13C17A /* WallSettings.swift */,
+				E6B8BE837AF3C13B0794736C /* WallStore.swift */,
+				44F5A3ED73F10E931F5FD204 /* WallVault.swift */,
+			);
+			path = Wall;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		231A78388D87CAC696B3B550 /* DeadwaxTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FE14CCE26B883A5446F26F8D /* Build configuration list for PBXNativeTarget "DeadwaxTests" */;
+			buildPhases = (
+				03868CF144EC02ADF82FE3FA /* Sources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				0E61336F644D059C9386E594 /* PBXTargetDependency */,
+			);
+			name = DeadwaxTests;
+			packageProductDependencies = (
+			);
+			productName = DeadwaxTests;
+			productReference = BCE203D81858BB7980335485 /* DeadwaxTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		36B7BAE280411366750505D6 /* Deadwax */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 47BDE3633123E643DEA077AA /* Build configuration list for PBXNativeTarget "Deadwax" */;
+			buildPhases = (
+				B69E8C5328F7BA2B8ACFA259 /* Sources */,
+				E874ECD4D67EAB32062587C7 /* Resources */,
+				6D434B76F2F80EA4044DB91B /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Deadwax;
+			packageProductDependencies = (
+				9D87920A32B20A845BD2F467 /* Alamofire */,
+			);
+			productName = Deadwax;
+			productReference = E76EB3E7ED6D42736212F958 /* Deadwax.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		635070C77AEF6165503FE7EF /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = YES;
+				LastUpgradeCheck = 1430;
+				TargetAttributes = {
+					231A78388D87CAC696B3B550 = {
+						ProvisioningStyle = Automatic;
+					};
+					36B7BAE280411366750505D6 = {
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = 8800A9CF11D8B6E1E19EBCCD /* Build configuration list for PBXProject "Deadwax" */;
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				Base,
+				en,
+			);
+			mainGroup = 244A335B7E818124E7604683;
+			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				B5B601FDAB3802938E8DB6A7 /* XCRemoteSwiftPackageReference "Alamofire" */,
+			);
+			preferredProjectObjectVersion = 77;
+			productRefGroup = 7AB951DAEA1D60DC2F9CA985 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				36B7BAE280411366750505D6 /* Deadwax */,
+				231A78388D87CAC696B3B550 /* DeadwaxTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		E874ECD4D67EAB32062587C7 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B44725FB9685C911BA5969D3 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		03868CF144EC02ADF82FE3FA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				41129AB6CC11EAEEC3D98ACA /* CatalogClientTests.swift in Sources */,
+				8F4BA2FCE4A530F2EE94F997 /* DeadwaxTests.swift in Sources */,
+				6F99C45679359137DF357B4F /* WallDeepLinkTests.swift in Sources */,
+				DEBB5BA0C091615ED1DF4DCB /* WallVaultTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B69E8C5328F7BA2B8ACFA259 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8AD6A843759644C194CD36B3 /* APIConfig.swift in Sources */,
+				7A52CAB9E384D1346611D25D /* AppDelegate.swift in Sources */,
+				629CE32DCD4D0EB7BF17EACF /* CatalogClient.swift in Sources */,
+				637E50B48176B0DE7D576F2D /* CatalogSeek.swift in Sources */,
+				D0D2445D52A16D63F524DAC3 /* ContentView.swift in Sources */,
+				3D475676A684EFE90BB07C0D /* CrateFold.swift in Sources */,
+				4913FED33FEDDDDE5F5F8103 /* DeadwaxApp.swift in Sources */,
+				C01FDA6BBD65F6CF561B5BD6 /* DiscoverWall.swift in Sources */,
+				2216D24A56E1B5DDB98E7E0B /* EmptySleevePage.swift in Sources */,
+				03CF768EA6D43904FC3DBAF2 /* Grade.swift in Sources */,
+				8B9D3EAEB1DB12C3094A0485 /* Groove.swift in Sources */,
+				65CABD21E673F1C60FA03932 /* GrooveFlip.swift in Sources */,
+				799BF4ED150DC679F7FF6910 /* GrooveMark.swift in Sources */,
+				F4E9E3EBDC887A0E06A943D0 /* NeedlePress.swift in Sources */,
+				41BAC9028D07930544046E1D /* PlayTileBoard.swift in Sources */,
+				11A698487F955117423AE0D4 /* Pressing.swift in Sources */,
+				C13B3B2E627EEBBCB17CB00F /* ReviewLane.swift in Sources */,
+				90FFF5CF07993791DA593146 /* SeenWalk.swift in Sources */,
+				3A3FF9E82A1B4DF519FFAE14 /* SleeveCode.swift in Sources */,
+				621D837AF2745DB46AF092C2 /* SleeveFront.swift in Sources */,
+				3D8497D4C9757A14E5150C57 /* SleeveOnboarding.swift in Sources */,
+				606FEFC82953941ED338124F /* SleeveScan.swift in Sources */,
+				6A43DAD608EBD375F28DD644 /* SleeveTile.swift in Sources */,
+				1427B279E08D6FD64513C5FA /* TasteFold.swift in Sources */,
+				17DFE0199A8B7C850BFB3F96 /* TasteProfile.swift in Sources */,
+				8A0CB29789CE140D92478DD7 /* WallBloom.swift in Sources */,
+				BA7B785DB88F1F8DBBB8C301 /* WallChrome.swift in Sources */,
+				20EE882063A4B5B72D135BE4 /* WallChromeShell.swift in Sources */,
+				A145CD686905CB3E016E1B74 /* WallDay.swift in Sources */,
+				D6F2777A73DFBE2528DEC982 /* WallDeepLink.swift in Sources */,
+				7B617B9AB113373B71DDA302 /* WallDocument.swift in Sources */,
+				E8720E4543B3E1774B95F3DC /* WallIntents.swift in Sources */,
+				12A514F263E7BF57B97E194F /* WallSettings.swift in Sources */,
+				BE818EB2FA3F9598AC8D64C1 /* WallStore.swift in Sources */,
+				9B3457094788566C499A2FBE /* WallVault.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		0E61336F644D059C9386E594 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 36B7BAE280411366750505D6 /* Deadwax */;
+			targetProxy = 06A0B3ADFFDA4837B2C36AD2 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		20BBDB8809D26B902D4A35E4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"DEBUG=1",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_STRICT_CONCURRENCY = complete;
+				SWIFT_VERSION = 6.2;
+			};
+			name = Debug;
+		};
+		2A8462F13E70B1550E89E607 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Deadwax/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = Deadwax;
+				INFOPLIST_KEY_ITSAppUsesNonExemptEncryption = NO;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.entertainment";
+				INFOPLIST_KEY_NSCameraUsageDescription = "Deadwax reads a catalog code from a vinyl sleeve so that pressing can be placed on the wall.";
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UIRequiresFullScreen = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.deadwax.wall;
+				PRODUCT_NAME = Deadwax;
+				SDKROOT = iphoneos;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SWIFT_STRICT_CONCURRENCY = complete;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		490733EF4F312453FD3A28F4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.deadwax.wall.tests;
+				SDKROOT = iphoneos;
+				SWIFT_STRICT_CONCURRENCY = complete;
+				SWIFT_VERSION = 6.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Deadwax.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Deadwax";
+			};
+			name = Release;
+		};
+		64A69F5E9F297D8F7D2B96F8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_STRICT_CONCURRENCY = complete;
+				SWIFT_VERSION = 6.2;
+			};
+			name = Release;
+		};
+		A027EF8092542FEDC83EB5F3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.deadwax.wall.tests;
+				SDKROOT = iphoneos;
+				SWIFT_STRICT_CONCURRENCY = complete;
+				SWIFT_VERSION = 6.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Deadwax.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Deadwax";
+			};
+			name = Debug;
+		};
+		BCEE6C03C200CD5B6B0411DE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Deadwax/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = Deadwax;
+				INFOPLIST_KEY_ITSAppUsesNonExemptEncryption = NO;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.entertainment";
+				INFOPLIST_KEY_NSCameraUsageDescription = "Deadwax reads a catalog code from a vinyl sleeve so that pressing can be placed on the wall.";
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UIRequiresFullScreen = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.deadwax.wall;
+				PRODUCT_NAME = Deadwax;
+				SDKROOT = iphoneos;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SWIFT_STRICT_CONCURRENCY = complete;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		47BDE3633123E643DEA077AA /* Build configuration list for PBXNativeTarget "Deadwax" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2A8462F13E70B1550E89E607 /* Debug */,
+				BCEE6C03C200CD5B6B0411DE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		8800A9CF11D8B6E1E19EBCCD /* Build configuration list for PBXProject "Deadwax" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				20BBDB8809D26B902D4A35E4 /* Debug */,
+				64A69F5E9F297D8F7D2B96F8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		FE14CCE26B883A5446F26F8D /* Build configuration list for PBXNativeTarget "DeadwaxTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A027EF8092542FEDC83EB5F3 /* Debug */,
+				490733EF4F312453FD3A28F4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		B5B601FDAB3802938E8DB6A7 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/wrandecima-bit/Alamofire";
+			requirement = {
+				kind = revision;
+				revision = 7fdd403089757be2ce6991b287c7bef612c8bd04;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		9D87920A32B20A845BD2F467 /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B5B601FDAB3802938E8DB6A7 /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
+		};
+/* End XCSwiftPackageProductDependency section */
+	};
+	rootObject = 635070C77AEF6165503FE7EF /* Project object */;
+}

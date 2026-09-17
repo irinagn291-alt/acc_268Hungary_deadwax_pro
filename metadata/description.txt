@@ -1,0 +1,11 @@
+Deadwax is a played vinyl crate on this device. Collectors search or scan a pressing onto a sleeve wall, tap Drop to record a play, then grade Grooved copies so Taste can fold what they heard.
+
+• Discover is the sleeve wall. Tap a sleeve, then Drop to write a GrooveMark and flip that copy from Mint to Grooved.
+• Search the catalog by artist, title, label, or catalog code, or Scan a sleeve by pointing at a barcode or QR. Search or Scan writes a Mint sleeve.
+• Grade a Grooved sleeve from 1 to 5 and add a local note on this copy. Retract peels the last play. At zero plays the sleeve returns to Mint.
+• Crate shows Mint stays unplayed and Grooved already heard.
+• Heard walks Grooved pressings in play order. Each row is one Drop, newest last.
+• Taste folds Grooved grades by genre and label. Unplayed Mint stays off Taste.
+• Settings holds Contact Deadwax, Catalog sources, Walk the wall again, and Reset the wall.
+
+No account is required. Home is the wall, not a title list.

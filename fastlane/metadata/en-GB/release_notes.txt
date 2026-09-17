@@ -1,0 +1,5 @@
+Version 1.0 is the first release of Deadwax.
+
+Search the catalogue or Scan a sleeve to place a Mint pressing on the wall. Tap a sleeve, then Drop to write a GrooveMark and flip that copy to Grooved. Grade Grooved sleeves from 1 to 5 and add a local note. Retract peels the last play.
+
+Discover, Crate, Heard, and Taste are segments of the same wall. Taste folds Grooved grades by genre and label. Settings includes Contact Deadwax, Catalogue sources, Walk the wall again, and Reset the wall.
