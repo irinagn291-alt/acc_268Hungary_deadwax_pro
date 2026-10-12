@@ -25,6 +25,7 @@
 		629CE32DCD4D0EB7BF17EACF /* CatalogClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB17B2E7E1B11E042802E2E3 /* CatalogClient.swift */; };
 		637E50B48176B0DE7D576F2D /* CatalogSeek.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A37BE9A8005B1188AB779A3 /* CatalogSeek.swift */; };
 		65CABD21E673F1C60FA03932 /* GrooveFlip.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B7AEE56D196E0B92332D14F /* GrooveFlip.swift */; };
+		697D0A1870AF125B17217057 /* DeadwaxPlatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 406F26849122B0C7C1A51894 /* DeadwaxPlatter.swift */; };
 		6A43DAD608EBD375F28DD644 /* SleeveTile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2226FBBFD5A46B7686AB9927 /* SleeveTile.swift */; };
 		6F99C45679359137DF357B4F /* WallDeepLinkTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0054D67B8635159EB4500DC2 /* WallDeepLinkTests.swift */; };
 		799BF4ED150DC679F7FF6910 /* GrooveMark.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEEF8C3E8F238AF41517BB15 /* GrooveMark.swift */; };
@@ -39,6 +40,7 @@
 		A145CD686905CB3E016E1B74 /* WallDay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A29FCC1E57C41FC72A7A56B /* WallDay.swift */; };
 		B44725FB9685C911BA5969D3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D3AC7D22F6C0AB711FA81E9C /* Assets.xcassets */; };
 		BA7B785DB88F1F8DBBB8C301 /* WallChrome.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77E209894F0BCA455D235908 /* WallChrome.swift */; };
+		BAB882D06FF38BC11CE13761 /* RunoutEtching.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DAD1E4D8230DEF5718A68F5 /* RunoutEtching.swift */; };
 		BE818EB2FA3F9598AC8D64C1 /* WallStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6B8BE837AF3C13B0794736C /* WallStore.swift */; };
 		C01FDA6BBD65F6CF561B5BD6 /* DiscoverWall.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AA783B171B760070E85591E /* DiscoverWall.swift */; };
 		C13B3B2E627EEBBCB17CB00F /* ReviewLane.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F1AF20E24578877C3BF2442 /* ReviewLane.swift */; };
@@ -73,11 +75,13 @@
 		2226FBBFD5A46B7686AB9927 /* SleeveTile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SleeveTile.swift; sourceTree = "<group>"; };
 		2A29FCC1E57C41FC72A7A56B /* WallDay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WallDay.swift; sourceTree = "<group>"; };
 		31FFAA52C6D0E60FD0C276EC /* WallDocument.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WallDocument.swift; sourceTree = "<group>"; };
+		406F26849122B0C7C1A51894 /* DeadwaxPlatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeadwaxPlatter.swift; sourceTree = "<group>"; };
 		44F5A3ED73F10E931F5FD204 /* WallVault.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WallVault.swift; sourceTree = "<group>"; };
 		4E04A916F47B75160E9D195B /* EmptySleevePage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptySleevePage.swift; sourceTree = "<group>"; };
 		4F3749589332D1EDF86B7E2B /* TasteProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TasteProfile.swift; sourceTree = "<group>"; };
 		5A37BE9A8005B1188AB779A3 /* CatalogSeek.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatalogSeek.swift; sourceTree = "<group>"; };
 		5B7AEE56D196E0B92332D14F /* GrooveFlip.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GrooveFlip.swift; sourceTree = "<group>"; };
+		5DAD1E4D8230DEF5718A68F5 /* RunoutEtching.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RunoutEtching.swift; sourceTree = "<group>"; };
 		6C3AF2B7CA13CE1F0F53EB47 /* WallIntents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WallIntents.swift; sourceTree = "<group>"; };
 		757F553F1572137690D07B9E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		77E209894F0BCA455D235908 /* WallChrome.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WallChrome.swift; sourceTree = "<group>"; };
@@ -100,7 +104,7 @@
 		DEEF8C3E8F238AF41517BB15 /* GrooveMark.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GrooveMark.swift; sourceTree = "<group>"; };
 		E47342F30FA4D977B8ACC425 /* SleeveOnboarding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SleeveOnboarding.swift; sourceTree = "<group>"; };
 		E6B8BE837AF3C13B0794736C /* WallStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WallStore.swift; sourceTree = "<group>"; };
-		E76EB3E7ED6D42736212F958 /* Deadwax.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = Deadwax.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		E76EB3E7ED6D42736212F958 /* Deadwax.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Deadwax.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EB17B2E7E1B11E042802E2E3 /* CatalogClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatalogClient.swift; sourceTree = "<group>"; };
 		FA4B3BB8C4736A7ECD13C17A /* WallSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WallSettings.swift; sourceTree = "<group>"; };
 		FF1EBEAAA8527D8477EDD603 /* APIConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIConfig.swift; sourceTree = "<group>"; };
@@ -206,12 +210,14 @@
 			children = (
 				5A37BE9A8005B1188AB779A3 /* CatalogSeek.swift */,
 				D71F4D271521373D94B460CC /* CrateFold.swift */,
+				406F26849122B0C7C1A51894 /* DeadwaxPlatter.swift */,
 				0AA783B171B760070E85591E /* DiscoverWall.swift */,
 				4E04A916F47B75160E9D195B /* EmptySleevePage.swift */,
 				5B7AEE56D196E0B92332D14F /* GrooveFlip.swift */,
 				9C7E69DCCACD0E56471DBD18 /* NeedlePress.swift */,
 				0B9329DCBCF376B90BCE5A2B /* PlayTileBoard.swift */,
 				8F1AF20E24578877C3BF2442 /* ReviewLane.swift */,
+				5DAD1E4D8230DEF5718A68F5 /* RunoutEtching.swift */,
 				01E689F03CDF810052987F78 /* SeenWalk.swift */,
 				E47342F30FA4D977B8ACC425 /* SleeveOnboarding.swift */,
 				CBCBEDE6AC0B652B15F96C3C /* SleeveScan.swift */,
@@ -299,7 +305,7 @@
 			mainGroup = 244A335B7E818124E7604683;
 			minimizedProjectReferenceProxies = 1;
 			packageReferences = (
-				B5B601FDAB3802938E8DB6A7 /* XCRemoteSwiftPackageReference "Alamofire" */,
+				7325FAB7633C63938559990A /* XCRemoteSwiftPackageReference "Alamofire" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 7AB951DAEA1D60DC2F9CA985 /* Products */;
@@ -346,6 +352,7 @@
 				D0D2445D52A16D63F524DAC3 /* ContentView.swift in Sources */,
 				3D475676A684EFE90BB07C0D /* CrateFold.swift in Sources */,
 				4913FED33FEDDDDE5F5F8103 /* DeadwaxApp.swift in Sources */,
+				697D0A1870AF125B17217057 /* DeadwaxPlatter.swift in Sources */,
 				C01FDA6BBD65F6CF561B5BD6 /* DiscoverWall.swift in Sources */,
 				2216D24A56E1B5DDB98E7E0B /* EmptySleevePage.swift in Sources */,
 				03CF768EA6D43904FC3DBAF2 /* Grade.swift in Sources */,
@@ -356,6 +363,7 @@
 				41BAC9028D07930544046E1D /* PlayTileBoard.swift in Sources */,
 				11A698487F955117423AE0D4 /* Pressing.swift in Sources */,
 				C13B3B2E627EEBBCB17CB00F /* ReviewLane.swift in Sources */,
+				BAB882D06FF38BC11CE13761 /* RunoutEtching.swift in Sources */,
 				90FFF5CF07993791DA593146 /* SeenWalk.swift in Sources */,
 				3A3FF9E82A1B4DF519FFAE14 /* SleeveCode.swift in Sources */,
 				621D837AF2745DB46AF092C2 /* SleeveFront.swift in Sources */,
@@ -458,7 +466,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 4;
+				CURRENT_PROJECT_VERSION = 2;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Deadwax/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = Deadwax;
@@ -590,7 +598,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 4;
+				CURRENT_PROJECT_VERSION = 2;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Deadwax/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = Deadwax;
@@ -650,7 +658,7 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		B5B601FDAB3802938E8DB6A7 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+		7325FAB7633C63938559990A /* XCRemoteSwiftPackageReference "Alamofire" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/ymvmj7dsyy-stack/Alamofire";
 			requirement = {
@@ -663,7 +671,7 @@
 /* Begin XCSwiftPackageProductDependency section */
 		9D87920A32B20A845BD2F467 /* Alamofire */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = B5B601FDAB3802938E8DB6A7 /* XCRemoteSwiftPackageReference "Alamofire" */;
+			package = 7325FAB7633C63938559990A /* XCRemoteSwiftPackageReference "Alamofire" */;
 			productName = Alamofire;
 		};
 /* End XCSwiftPackageProductDependency section */
