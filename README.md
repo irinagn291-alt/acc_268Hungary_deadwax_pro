@@ -18,6 +18,10 @@ Search or Scan writes Mint and never a GrooveMark. Drop writes one GrooveMark, i
 
 That is why someone would pick this app: home records a play, it does not save a title.
 
+## Deadwax runout
+
+After Drop, Read the deadwax etches the inscription in the quiet ring between the last groove and the label. Each side keeps its own line. Taste folds those etchings by the mastering mark you can actually see, such as Sterling or Porky. Retract back to Mint clears the runout with the grade and the note. An unplayed sleeve never carries one.
+
 ## Design
 
 Berry soft bloom on SF Pro. Mixed-size play tiles, one cutout, a fat Drop control. Art direction is 3D glass render glassmorphism: frosted vinyl sleeves and a grooved disc, not a book-cover grid.

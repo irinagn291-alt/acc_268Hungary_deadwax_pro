@@ -26,7 +26,7 @@ struct GrooveFlip: View {
                 .font(Bloom.Typeface.body)
                 .foregroundStyle(Bloom.Pigment.ink)
                 .fixedSize(horizontal: false, vertical: true)
-            Text("Grade and Taste fold only Grooved copies. Retract peels the last play. At zero plays the sleeve returns to Mint.")
+            Text("Grade and Taste fold only Grooved copies. Read the deadwax on a played sleeve. Retract peels the last play. At zero plays the sleeve returns to Mint and the runout clears.")
                 .font(Bloom.Typeface.body)
                 .foregroundStyle(Bloom.Pigment.muted)
                 .fixedSize(horizontal: false, vertical: true)

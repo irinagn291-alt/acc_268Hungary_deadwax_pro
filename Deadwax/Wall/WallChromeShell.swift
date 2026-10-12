@@ -22,6 +22,12 @@ struct WallShell: View {
         .fullScreenCover(isPresented: $chrome.showingTwist) {
             GrooveFlip()
         }
+        .fullScreenCover(isPresented: deadwaxPresented, onDismiss: {
+            chrome.commitRunoutDraft()
+        }) {
+            DeadwaxReader()
+                .environmentObject(chrome)
+        }
         .sheet(isPresented: $chrome.showingSettings) {
             WallSettings()
                 .environmentObject(chrome)
@@ -55,11 +61,26 @@ struct WallShell: View {
         }
     }
 
+    private var deadwaxPresented: Binding<Bool> {
+        Binding(
+            get: { chrome.showingDeadwax && chrome.focused?.groove == .grooved },
+            set: { isPresented in
+                if !isPresented {
+                    chrome.showingDeadwax = false
+                }
+            }
+        )
+    }
+
     private var retractCopy: String {
-        if let title = chrome.focused?.title {
-            return "Retract the last GrooveMark on \(title)? At zero plays this sleeve returns to Mint."
+        let title = chrome.focused?.title
+        let lastPlay = chrome.focused.map { chrome.document.plays(for: $0.id) == 1 } ?? false
+        let hasRunout = chrome.focused.map { !(chrome.document.runouts[$0.id] ?? []).isEmpty } ?? false
+        let subject = title.map { "Retract the last GrooveMark on \($0)?" } ?? "Retract the last GrooveMark?"
+        if lastPlay && hasRunout {
+            return "\(subject) This is the last play, so the sleeve returns to Mint and the deadwax read is cleared."
         }
-        return "Retract the last GrooveMark? At zero plays this sleeve returns to Mint."
+        return "\(subject) At zero plays this sleeve returns to Mint."
     }
 }
 

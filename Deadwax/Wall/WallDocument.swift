@@ -4,17 +4,29 @@ enum WallSchemaFault: Error, Sendable, Equatable {
     case unsupported(Int)
 }
 
-/// Role: Codable wall projection. schemaVersion starts at 1. Plays are derived, never stored.
+/// Role: Codable wall projection. schemaVersion starts at 1. Plays are derived, never stored. Runouts are optional so a wall saved before deadwax reads still loads.
 struct WallDocument: Codable, Sendable, Equatable {
     var schemaVersion: Int
     var pressings: [Pressing]
     var marks: [GrooveMark]
     var grades: [UUID: Int]
     var notes: [UUID: String]
+    var runouts: [UUID: [RunoutEtching]]
     var shelf: [CatalogHit]
     var onboardingComplete: Bool
 
     static let currentSchema = 1
+
+    enum CodingKeys: String, CodingKey {
+        case schemaVersion
+        case pressings
+        case marks
+        case grades
+        case notes
+        case runouts
+        case shelf
+        case onboardingComplete
+    }
 
     static var empty: WallDocument {
         WallDocument(
@@ -23,6 +35,7 @@ struct WallDocument: Codable, Sendable, Equatable {
             marks: [],
             grades: [:],
             notes: [:],
+            runouts: [:],
             shelf: [],
             onboardingComplete: false
         )
@@ -34,6 +47,7 @@ struct WallDocument: Codable, Sendable, Equatable {
         marks: [GrooveMark],
         grades: [UUID: Int],
         notes: [UUID: String],
+        runouts: [UUID: [RunoutEtching]] = [:],
         shelf: [CatalogHit],
         onboardingComplete: Bool
     ) {
@@ -42,6 +56,7 @@ struct WallDocument: Codable, Sendable, Equatable {
         self.marks = marks
         self.grades = grades
         self.notes = notes
+        self.runouts = runouts
         self.shelf = shelf
         self.onboardingComplete = onboardingComplete
     }
@@ -56,11 +71,24 @@ struct WallDocument: Codable, Sendable, Equatable {
             marks = try box.decodeIfPresent([GrooveMark].self, forKey: .marks) ?? []
             grades = try box.decodeIfPresent([UUID: Int].self, forKey: .grades) ?? [:]
             notes = try box.decodeIfPresent([UUID: String].self, forKey: .notes) ?? [:]
+            runouts = try box.decodeIfPresent([UUID: [RunoutEtching]].self, forKey: .runouts) ?? [:]
             shelf = try box.decodeIfPresent([CatalogHit].self, forKey: .shelf) ?? []
             onboardingComplete = try box.decodeIfPresent(Bool.self, forKey: .onboardingComplete) ?? false
         default:
             throw WallSchemaFault.unsupported(version)
         }
+    }
+
+    func encode(to encoder: Encoder) throws {
+        var box = encoder.container(keyedBy: CodingKeys.self)
+        try box.encode(schemaVersion, forKey: .schemaVersion)
+        try box.encode(pressings, forKey: .pressings)
+        try box.encode(marks, forKey: .marks)
+        try box.encode(grades, forKey: .grades)
+        try box.encode(notes, forKey: .notes)
+        try box.encode(runouts, forKey: .runouts)
+        try box.encode(shelf, forKey: .shelf)
+        try box.encode(onboardingComplete, forKey: .onboardingComplete)
     }
 
     mutating func repairGrooves() {
@@ -74,6 +102,17 @@ struct WallDocument: Codable, Sendable, Equatable {
         let groovedIds = Set(pressings.filter { $0.groove == .grooved }.map(\.id))
         grades = grades.filter { groovedIds.contains($0.key) }
         notes = notes.filter { groovedIds.contains($0.key) }
+        var keptRunouts: [UUID: [RunoutEtching]] = [:]
+        for (id, rows) in runouts where groovedIds.contains(id) {
+            let cleaned = rows
+                .map { RunoutEtching(side: $0.side, inscription: RunoutScript.normalized($0.inscription)) }
+                .filter { !$0.inscription.isEmpty }
+                .sorted { $0.side < $1.side }
+            if !cleaned.isEmpty {
+                keptRunouts[id] = cleaned
+            }
+        }
+        runouts = keptRunouts
     }
 
     func plays(for pressingId: UUID) -> Int {
@@ -100,6 +139,30 @@ struct WallDocument: Codable, Sendable, Equatable {
 
     func tasteByLabel() -> [TasteFold] {
         TasteMath.folds(pressings: pressings, grades: grades, marks: marks, key: \.label)
+    }
+
+    func inscription(for id: UUID, side: PlatterSide) -> String {
+        runouts[id]?.first { $0.side == side }?.inscription ?? ""
+    }
+
+    func runoutFolds() -> [RunoutFold] {
+        RunoutMath.folds(pressings: pressings, runouts: runouts)
+    }
+
+    var runoutsReadCount: Int {
+        pressings.filter { pressing in
+            pressing.groove == .grooved && !(runouts[pressing.id] ?? []).isEmpty
+        }.count
+    }
+
+    func pressing(forRunout signature: String) -> Pressing? {
+        pressings
+            .filter { pressing in
+                pressing.groove == .grooved && (runouts[pressing.id] ?? []).contains {
+                    RunoutMath.signature(of: $0.inscription) == signature
+                }
+            }
+            .max { plays(for: $0.id) < plays(for: $1.id) }
     }
 
     var dropIsEnabled: Bool {
@@ -201,6 +264,19 @@ struct WallDocument: Codable, Sendable, Equatable {
             notes: [
                 one.id: "The Columbia stereo still opens the room.",
                 two.id: "Factory sleeve, first needle drop this month.",
+            ],
+            runouts: [
+                one.id: [
+                    RunoutEtching(side: .a, inscription: "A1 STERLING"),
+                    RunoutEtching(side: .b, inscription: "B1 STERLING"),
+                ],
+                two.id: [
+                    RunoutEtching(side: .a, inscription: "A PORKY PRIME CUT"),
+                    RunoutEtching(side: .b, inscription: "B STRAWBERRY"),
+                ],
+                four.id: [
+                    RunoutEtching(side: .a, inscription: "A-1 ABBEY ROAD"),
+                ],
             ],
             shelf: pressings.map { pressing in
                 CatalogHit(

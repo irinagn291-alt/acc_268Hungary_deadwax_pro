@@ -25,6 +25,7 @@ final class WallVaultTests: XCTestCase {
         _ = try await store.dropNeedle(pressing.id)
         try await store.gradeSleeve(pressing.id, pips: 5)
         try await store.inscribeNote(pressing.id, note: "Local note on a Grooved copy.")
+        try store.etchRunout(pressing.id, side: .a, inscription: "A PORKY PRIME CUT")
         await store.flush()
 
         let reloaded = WallStore(vault: vault, client: CatalogClient(transport: FailingTransport()))
@@ -34,6 +35,7 @@ final class WallVaultTests: XCTestCase {
         XCTAssertEqual(reloaded.plays(for: pressing.id), 1)
         XCTAssertEqual(reloaded.document.grades[pressing.id], 5)
         XCTAssertEqual(reloaded.document.notes[pressing.id], "Local note on a Grooved copy.")
+        XCTAssertEqual(reloaded.document.inscription(for: pressing.id, side: .a), "A PORKY PRIME CUT")
         XCTAssertEqual(reloaded.document.schemaVersion, 1)
         XCTAssertEqual(reloaded.document.shelf.first?.title, "Donuts")
 
@@ -92,5 +94,13 @@ final class WallVaultTests: XCTestCase {
         XCTAssertTrue(store.startedEmpty)
         UserDefaults(suiteName: suite)?.removePersistentDomain(forName: suite)
         try? FileManager.default.removeItem(at: folder)
+    }
+
+    func testLegacyWallWithoutRunoutsDecodesEmpty() throws {
+        let data = Data(#"{"schemaVersion":1}"#.utf8)
+        let document = try JSONDecoder().decode(WallDocument.self, from: data)
+        XCTAssertTrue(document.runouts.isEmpty)
+        XCTAssertEqual(document.schemaVersion, 1)
+        XCTAssertTrue(document.pressings.isEmpty)
     }
 }

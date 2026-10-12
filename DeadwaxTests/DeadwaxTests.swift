@@ -312,6 +312,98 @@ final class DeadwaxTests: XCTestCase {
         XCTAssertGreaterThan(frames[3].width, frames[1].width)
     }
 
+    func testDeadwaxRunoutReadsGroovedCopiesOnly() async throws {
+        let store = WallStore(vault: MemoryVault(), client: CatalogClient(transport: FailingTransport()))
+        do {
+            try store.etchRunout(UUID(), side: .a, inscription: "RL")
+            XCTFail("unknown sleeve")
+        } catch WallFault.unknownPressing {
+        }
+
+        let hit = CatalogHit(
+            musicBrainzId: "abababab-cdcd-4efe-9090-121212121212",
+            artist: "Can",
+            title: "Future Days",
+            label: "United Artists",
+            genre: "Krautrock",
+            catalogCode: "UAS 29505",
+            barcode: "0042282950516",
+            sleeveFrontURL: ""
+        )
+        let pressing = await store.sleeve(hit)
+        do {
+            try store.etchRunout(pressing.id, side: .a, inscription: "A1 STERLING")
+            XCTFail("Mint must not take a runout")
+        } catch WallFault.stillMint {
+        }
+        XCTAssertTrue(store.document.runoutFolds().isEmpty)
+
+        _ = try await store.dropNeedle(pressing.id)
+        try store.etchRunout(pressing.id, side: .a, inscription: "  A   PORKY   PRIME CUT  ")
+        try store.etchRunout(pressing.id, side: .b, inscription: "B1 STERLING")
+        XCTAssertEqual(store.document.inscription(for: pressing.id, side: .a), "A PORKY PRIME CUT")
+        XCTAssertEqual(store.document.inscription(for: pressing.id, side: .b), "B1 STERLING")
+        XCTAssertEqual(store.document.runoutsReadCount, 1)
+        XCTAssertEqual(
+            Set(store.document.runoutFolds().map(\.signature)),
+            ["Porky", "Sterling"]
+        )
+
+        _ = try await store.dropNeedle(pressing.id)
+        try await store.peelLastMark(pressing.id)
+        XCTAssertEqual(store.document.pressings.first?.groove, .grooved)
+        XCTAssertEqual(store.document.inscription(for: pressing.id, side: .a), "A PORKY PRIME CUT")
+
+        try await store.peelLastMark(pressing.id)
+        XCTAssertEqual(store.document.pressings.first?.groove, .mint)
+        XCTAssertNil(store.document.runouts[pressing.id])
+        XCTAssertTrue(store.document.runoutFolds().isEmpty)
+
+        let demo = WallStore(vault: MemoryVault(), client: CatalogClient(transport: FailingTransport()))
+        await demo.installDemoCrate()
+        XCTAssertEqual(demo.document.runoutsReadCount, 3)
+        XCTAssertEqual(demo.document.groovedSleeves().count, 4)
+        XCTAssertEqual(demo.document.pressing(forRunout: "Sterling")?.id, DemoIDs.kindOfBlue)
+        XCTAssertTrue(demo.document.runoutFolds().contains { $0.signature == "Porky" && $0.copyCount == 1 })
+        XCTAssertTrue(demo.document.runoutFolds().contains { $0.signature == "Strawberry" && $0.copyCount == 1 })
+    }
+
+    func testRunoutSignatureTreatsSterlingAsItsOwnMark() {
+        XCTAssertEqual(RunoutMath.signature(of: "A1 STERLING"), "Sterling")
+        XCTAssertFalse(RunoutScript.tokens("A1 STERLING").contains("RL"))
+        XCTAssertEqual(RunoutMath.signature(of: "B-1 RL"), "RL")
+        XCTAssertEqual(RunoutMath.signature(of: "A PORKY PRIME CUT"), "Porky")
+        XCTAssertEqual(RunoutMath.signature(of: "MASTERED AT ABBEY ROAD"), "Abbey Road")
+        XCTAssertEqual(RunoutMath.signature(of: "A-1 83945"), RunoutMath.handMatrix)
+        XCTAssertEqual(RunoutScript.stamped("", with: "Sterling"), "STERLING")
+        XCTAssertEqual(RunoutScript.stamped("A-1", with: "Sterling"), "A-1 STERLING")
+        XCTAssertEqual(RunoutScript.stamped("A-1 STERLING", with: "Sterling"), "A-1")
+        XCTAssertEqual(RunoutScript.stamped("STERLING", with: "Sterling"), "")
+    }
+
+    func testRepairStripsRunoutsWhenTheCopyIsMint() {
+        let id = UUID()
+        var document = WallDocument.empty
+        document.pressings = [
+            Pressing(
+                id: id,
+                musicBrainzId: "runout-mint",
+                artist: "A",
+                title: "T",
+                label: "L",
+                genre: "Jazz",
+                catalogCode: "C",
+                barcode: "1",
+                sleeveFrontURL: "",
+                groove: .grooved
+            ),
+        ]
+        document.runouts[id] = [RunoutEtching(side: .a, inscription: "A1 STERLING")]
+        document.repairGrooves()
+        XCTAssertEqual(document.pressings.first?.groove, .mint)
+        XCTAssertNil(document.runouts[id])
+    }
+
     func testDayKeyUsesStartOfDay() {
         var calendar = Calendar(identifier: .gregorian)
         calendar.timeZone = TimeZone(secondsFromGMT: 0)!

@@ -69,6 +69,7 @@ struct CrateFold: View {
                     pulse: false,
                     plays: { chrome.store.plays(for: $0) },
                     grade: { chrome.document.grades[$0] },
+                    runoutRead: { !(chrome.document.runouts[$0] ?? []).isEmpty },
                     onPick: { chrome.focus($0) }
                 )
                 .frame(maxWidth: .infinity, maxHeight: .infinity)

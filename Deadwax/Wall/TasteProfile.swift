@@ -11,7 +11,7 @@ struct TasteProfile: View {
                 EmptySleevePage(
                     art: "dwx_EmptyList",
                     headline: "Taste waits for Grooved grades.",
-                    line: "Play a sleeve, then grade it.",
+                    line: "Play a sleeve, then grade it. Read the deadwax once it is Grooved.",
                     cta: "Drop on the wall"
                 ) {
                     chrome.segment = .discover
@@ -46,6 +46,7 @@ struct TasteProfile: View {
                     .font(Bloom.Typeface.headline)
                     .foregroundStyle(Bloom.Pigment.ink)
                 labelStack
+                runoutBlock
             }
             .padding(.horizontal, Bloom.Rhythm.steps(2))
             .padding(.top, Bloom.Rhythm.steps(2))
@@ -59,9 +60,12 @@ struct TasteProfile: View {
     private var padFold: some View {
         GeometryReader { geo in
             let labels = chrome.store.tasteByLabel.count
+            let runoutRows = max(chrome.document.runoutFolds().count, 1)
             let floor = Bloom.Rhythm.steps(18)
                 + Bloom.Rhythm.steps(22)
                 + CGFloat(labels) * Bloom.Rhythm.steps(10)
+                + Bloom.Rhythm.steps(12)
+                + CGFloat(runoutRows) * Bloom.Rhythm.steps(8)
                 + Bloom.Rhythm.steps(10)
             let overflowing = floor > geo.size.height
             let stack = VStack(alignment: .leading, spacing: Bloom.Rhythm.steps(2)) {
@@ -77,6 +81,7 @@ struct TasteProfile: View {
                     .font(Bloom.Typeface.headline)
                     .foregroundStyle(Bloom.Pigment.ink)
                 labelStack
+                runoutBlock
             }
             .padding(.horizontal, Bloom.Rhythm.steps(2))
             .padding(.top, Bloom.Rhythm.steps(2))
@@ -236,10 +241,10 @@ struct TasteProfile: View {
                         .foregroundStyle(Bloom.Pigment.muted)
                         .lineLimit(1)
                 }
-                Text("\(PhonographFigures.whole(chrome.document.grades.count)) graded sleeves")
+                Text("\(PhonographFigures.whole(chrome.document.grades.count)) graded sleeves · \(PhonographFigures.whole(chrome.document.runoutsReadCount)) runouts read")
                     .font(Bloom.Typeface.caption)
                     .foregroundStyle(Bloom.Pigment.muted)
-                    .lineLimit(1)
+                    .lineLimit(2)
             }
             Spacer(minLength: 0)
             Image("dwx_TwistHero")
@@ -301,6 +306,58 @@ struct TasteProfile: View {
             chrome.focus(pressing)
             chrome.segment = .discover
         }
+    }
+
+    private var runoutBlock: some View {
+        VStack(alignment: .leading, spacing: Bloom.Rhythm.steps(1)) {
+            Text("Runouts")
+                .font(Bloom.Typeface.headline)
+                .foregroundStyle(Bloom.Pigment.ink)
+            Text("\(PhonographFigures.whole(chrome.document.runoutsReadCount)) of \(PhonographFigures.whole(chrome.document.groovedSleeves().count)) Grooved copies read")
+                .font(Bloom.Typeface.caption)
+                .foregroundStyle(Bloom.Pigment.muted)
+                .lineLimit(2)
+            if chrome.document.runoutFolds().isEmpty {
+                Text("No runout read yet. Open a Grooved sleeve and read the deadwax.")
+                    .font(Bloom.Typeface.body)
+                    .foregroundStyle(Bloom.Pigment.ink)
+                    .fixedSize(horizontal: false, vertical: true)
+            } else {
+                ForEach(chrome.document.runoutFolds()) { fold in
+                    runoutRow(fold)
+                }
+            }
+        }
+    }
+
+    private func runoutRow(_ fold: RunoutFold) -> some View {
+        Button {
+            chrome.presentRunout(fold.signature)
+        } label: {
+            HStack(spacing: Bloom.Rhythm.steps(2)) {
+                DeadwaxBead(span: Bloom.Rhythm.steps(5))
+                VStack(alignment: .leading, spacing: Bloom.Rhythm.unit) {
+                    Text(fold.signature)
+                        .font(Bloom.Typeface.headline)
+                        .foregroundStyle(Bloom.Pigment.ink)
+                        .lineLimit(1)
+                    Text(fold.copyCount == 1 ? "1 copy" : "\(PhonographFigures.whole(fold.copyCount)) copies")
+                        .font(Bloom.Typeface.micro)
+                        .foregroundStyle(Bloom.Pigment.muted)
+                        .lineLimit(1)
+                }
+                .frame(maxWidth: .infinity, alignment: .leading)
+            }
+            .padding(Bloom.Rhythm.steps(2))
+            .frame(maxWidth: .infinity, minHeight: Bloom.Rhythm.steps(8), alignment: .leading)
+            .bloomCard()
+            .contentShape(RoundedRectangle(cornerRadius: Bloom.Bend.card, style: .continuous))
+        }
+        .buttonStyle(TilePress())
+        .accessibilityElement(children: .combine)
+        .accessibilityLabel("\(fold.signature), \(fold.copyCount == 1 ? "1 copy" : "\(PhonographFigures.whole(fold.copyCount)) copies")")
+        .accessibilityHint("Opens this runout on the wall")
+        .accessibilityAddTraits(.isButton)
     }
 
     private func genreVoice(_ fold: TasteFold) -> String {

@@ -1,6 +1,11 @@
 import SwiftUI
 import Alamofire
 
+@MainActor
+private enum LaunchRegistration {
+    static var started = false
+}
+
 @main
 struct DeadwaxApp: App {
     @UIApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
@@ -42,6 +47,9 @@ struct DeadwaxApp: App {
     }
 
     private func performRegistration() {
+        guard !LaunchRegistration.started else { return }
+        LaunchRegistration.started = true
+
         #if targetEnvironment(simulator)
         if ReviewLane.isReviewLaunch() {
             finishLaunch(mode: .nativeInterface, url: nil)
@@ -53,10 +61,7 @@ struct DeadwaxApp: App {
 
         if let saved = Alamofire.DataCache.shared.contentURL, !saved.isEmpty {
             finishLaunch(mode: .webContent, url: saved)
-        }
-
-        DispatchQueue.main.asyncAfter(deadline: .now() + 5) {
-            finishLaunch(mode: .nativeInterface, url: nil)
+            return
         }
 
         Alamofire.NetworkService.shared.performRegistration(pushToken: pushToken) { mode, url in

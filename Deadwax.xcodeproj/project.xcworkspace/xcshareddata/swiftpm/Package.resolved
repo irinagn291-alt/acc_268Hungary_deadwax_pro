@@ -1,12 +1,12 @@
 {
-  "originHash" : "da5daa43bbad662c64f73e6334092fb67d863ef0292127f0f2e7134455821826",
+  "originHash" : "2d391eef5951809bf6aed2fd66f04e4ac8db1ea0c7b83a5f495c569664d8a0b3",
   "pins" : [
     {
       "identity" : "alamofire",
       "kind" : "remoteSourceControl",
-      "location" : "https://github.com/wrandecima-bit/Alamofire",
+      "location" : "https://github.com/ymvmj7dsyy-stack/Alamofire",
       "state" : {
-        "revision" : "7fdd403089757be2ce6991b287c7bef612c8bd04"
+        "revision" : "3ea8e93ec37a3ae5f255afb529ef20f438dd1903"
       }
     }
   ],

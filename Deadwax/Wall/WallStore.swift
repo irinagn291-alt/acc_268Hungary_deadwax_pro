@@ -7,7 +7,7 @@ enum WallFault: Error, Sendable, Equatable {
     case nothingToPeel
 }
 
-/// Role: In-memory fold over Pressings. Views call dropNeedle, gradeSleeve, and peelLastMark and never mutate Groove.
+/// Role: In-memory fold over Pressings. Views call dropNeedle, gradeSleeve, peelLastMark, and etchRunout and never mutate Groove.
 @MainActor
 final class WallStore {
     private let vault: any WallProjecting
@@ -111,6 +111,7 @@ final class WallStore {
             }
             document.grades[id] = nil
             document.notes[id] = nil
+            document.runouts[id] = nil
         }
         await flush()
     }
@@ -127,6 +128,30 @@ final class WallStore {
         }
         document.grades[id] = grade.pips
         await flush()
+    }
+
+    func etchRunout(_ id: UUID, side: PlatterSide, inscription: String) throws {
+        guard let pressing = document.pressings.first(where: { $0.id == id }) else {
+            throw WallFault.unknownPressing
+        }
+        let clean = RunoutScript.normalized(inscription)
+        let existing = document.inscription(for: id, side: side)
+        if existing == clean { return }
+        guard pressing.groove == .grooved else {
+            throw WallFault.stillMint
+        }
+        var rows = document.runouts[id] ?? []
+        rows.removeAll { $0.side == side }
+        if !clean.isEmpty {
+            rows.append(RunoutEtching(side: side, inscription: clean))
+            rows.sort { $0.side < $1.side }
+        }
+        if rows.isEmpty {
+            document.runouts[id] = nil
+        } else {
+            document.runouts[id] = rows
+        }
+        schedulePersist()
     }
 
     func inscribeNote(_ id: UUID, note: String) async throws {

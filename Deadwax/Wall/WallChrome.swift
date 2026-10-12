@@ -1,7 +1,7 @@
 import Combine
 import SwiftUI
 
-/// Role: Presentation session for wall-segment chrome. Views call dropNeedle, gradeSleeve, and peelLastMark through this type and never mutate Groove.
+/// Role: Presentation session for wall-segment chrome. Views call dropNeedle, gradeSleeve, peelLastMark, and etchRunout through this type and never mutate Groove.
 @MainActor
 final class WallChrome: ObservableObject {
     let store: WallStore
@@ -10,6 +10,9 @@ final class WallChrome: ObservableObject {
     @Published var segment: WallSegment = .discover
     @Published var focusedID: UUID?
     @Published var fuseNote: String = ""
+    @Published var showingDeadwax = false
+    @Published var platterSide: PlatterSide = .a
+    @Published var fuseRunout: String = ""
     @Published var booted = false
     @Published var showingOnboarding = true
     @Published var showingSearch = false
@@ -30,6 +33,7 @@ final class WallChrome: ObservableObject {
     private var didBoot = false
     private var reviewHookConsumed = false
     private var noteTask: Task<Void, Never>?
+    private var runoutTask: Task<Void, Never>?
     private var successTask: Task<Void, Never>?
 
     init(store: WallStore) {
@@ -74,6 +78,9 @@ final class WallChrome: ObservableObject {
         if focusedID == nil {
             focusedID = document.mintSleeves().first?.id ?? document.pressings.first?.id
             fuseNote = focused.flatMap { document.notes[$0.id] } ?? ""
+            if let id = focusedID {
+                loadRunout(for: id, side: .a)
+            }
         }
         watchPulse()
         booted = true
@@ -81,6 +88,7 @@ final class WallChrome: ObservableObject {
 
     func handle(phase: ScenePhase) {
         if phase == .inactive || phase == .background {
+            commitRunoutDraft()
             Task { await store.flush() }
         }
     }
@@ -110,6 +118,10 @@ final class WallChrome: ObservableObject {
         applyReviewHookOnce()
         if focusedID == nil {
             focusedID = document.pressings.first?.id
+            if let id = focusedID {
+                fuseNote = document.notes[id] ?? ""
+                loadRunout(for: id, side: .a)
+            }
         }
     }
 
@@ -119,9 +131,90 @@ final class WallChrome: ObservableObject {
     }
 
     func focus(_ pressing: Pressing) {
+        guard focusedID != pressing.id else {
+            faultCopy = nil
+            return
+        }
+        commitRunoutDraft()
         focusedID = pressing.id
         fuseNote = document.notes[pressing.id] ?? ""
         faultCopy = nil
+        showingDeadwax = false
+        loadRunout(for: pressing.id, side: .a)
+    }
+
+    func openDeadwax() {
+        guard let id = focusedID, focused?.groove == .grooved else { return }
+        loadRunout(for: id, side: platterSide)
+        showingDeadwax = true
+    }
+
+    func selectSide(_ side: PlatterSide) {
+        guard side != platterSide else { return }
+        guard let id = focusedID else {
+            platterSide = side
+            fuseRunout = ""
+            return
+        }
+        let previous = platterSide
+        let text = fuseRunout
+        runoutTask?.cancel()
+        runoutTask = nil
+        applyRunout(id: id, side: previous, text: text, report: false)
+        platterSide = side
+        fuseRunout = document.inscription(for: id, side: side)
+    }
+
+    func editRunout(_ text: String) {
+        let capped = String(text.prefix(RunoutScript.limit))
+        fuseRunout = capped
+        guard let id = focusedID else { return }
+        let side = platterSide
+        runoutTask?.cancel()
+        runoutTask = Task { @MainActor in
+            try? await Task.sleep(for: .milliseconds(300))
+            guard !Task.isCancelled else { return }
+            applyRunout(id: id, side: side, text: capped, report: true)
+        }
+    }
+
+    func stampPlant(_ plant: String) {
+        guard let id = focusedID else { return }
+        let side = platterSide
+        let next = RunoutScript.stamped(fuseRunout, with: plant)
+        fuseRunout = next
+        runoutTask?.cancel()
+        runoutTask = nil
+        applyRunout(id: id, side: side, text: next, report: true)
+    }
+
+    func commitRunoutDraft() {
+        runoutTask?.cancel()
+        runoutTask = nil
+        guard let id = focusedID else { return }
+        applyRunout(id: id, side: platterSide, text: fuseRunout, report: false)
+    }
+
+    func presentRunout(_ signature: String) {
+        guard let pressing = document.pressing(forRunout: signature) else { return }
+        if focusedID != pressing.id {
+            commitRunoutDraft()
+        } else {
+            runoutTask?.cancel()
+            runoutTask = nil
+        }
+        focusedID = pressing.id
+        fuseNote = document.notes[pressing.id] ?? ""
+        faultCopy = nil
+        let rows = document.runouts[pressing.id] ?? []
+        if let match = rows.first(where: { RunoutMath.signature(of: $0.inscription) == signature }) {
+            platterSide = match.side
+            fuseRunout = match.inscription
+        } else {
+            loadRunout(for: pressing.id, side: .a)
+        }
+        segment = .discover
+        showingDeadwax = true
     }
 
     func dropFocused(reduceMotion: Bool) async {
@@ -174,6 +267,10 @@ final class WallChrome: ObservableObject {
             sync()
             NeedleFeel.commit()
             fuseNote = document.notes[id] ?? ""
+            if document.pressings.first(where: { $0.id == id })?.groove != .grooved {
+                showingDeadwax = false
+                loadRunout(for: id, side: .a)
+            }
             faultCopy = nil
         } catch WallFault.nothingToPeel {
             faultCopy = "No GrooveMark left to retract on this sleeve."
@@ -203,10 +300,13 @@ final class WallChrome: ObservableObject {
     func sleeve(_ hit: CatalogHit) async {
         busySleeve = true
         defer { busySleeve = false }
+        commitRunoutDraft()
         let pressing = await store.sleeve(hit)
         sync()
         focusedID = pressing.id
         fuseNote = document.notes[pressing.id] ?? ""
+        showingDeadwax = false
+        loadRunout(for: pressing.id, side: .a)
         segment = .discover
         showingSearch = false
         showingScan = false
@@ -222,10 +322,15 @@ final class WallChrome: ObservableObject {
     }
 
     func resetWall() async {
+        runoutTask?.cancel()
+        runoutTask = nil
         await store.resetAllData()
         sync()
         focusedID = nil
         fuseNote = ""
+        showingDeadwax = false
+        platterSide = .a
+        fuseRunout = ""
         segment = .discover
         faultCopy = nil
         showingSettings = false
@@ -237,10 +342,19 @@ final class WallChrome: ObservableObject {
         if let focusedID, document.pressings.contains(where: { $0.id == focusedID }) == false {
             self.focusedID = document.pressings.first?.id
             fuseNote = focused.flatMap { document.notes[$0.id] } ?? ""
+            if let id = self.focusedID {
+                loadRunout(for: id, side: .a)
+            } else {
+                platterSide = .a
+                fuseRunout = ""
+                showingDeadwax = false
+            }
         }
     }
 
     func apply(_ lane: ReviewLane) {
+        commitRunoutDraft()
+        showingDeadwax = false
         showingSearch = false
         showingTwist = false
         switch lane.destination {
@@ -264,13 +378,44 @@ final class WallChrome: ObservableObject {
             withAnimation(Bloom.Motion.travel) {
                 segment = next
             }
+            showingDeadwax = false
             showingSearch = false
             showingScan = false
             showingSettings = false
             showingTwist = false
             if let id, document.pressings.contains(where: { $0.id == id }) {
-                focusedID = id
+                if focusedID != id {
+                    commitRunoutDraft()
+                    focusedID = id
+                    loadRunout(for: id, side: .a)
+                }
                 fuseNote = document.notes[id] ?? ""
+                showingDeadwax = false
+            }
+        }
+    }
+
+    private func loadRunout(for id: UUID, side: PlatterSide) {
+        platterSide = side
+        fuseRunout = document.inscription(for: id, side: side)
+    }
+
+    private func applyRunout(id: UUID, side: PlatterSide, text: String, report: Bool) {
+        do {
+            try store.etchRunout(id, side: side, inscription: text)
+            sync()
+            if report { faultCopy = nil }
+        } catch WallFault.stillMint {
+            if report {
+                faultCopy = "The deadwax waits for a Grooved sleeve. Drop first."
+            }
+        } catch WallFault.unknownPressing {
+            if report {
+                faultCopy = "That sleeve is not on the wall."
+            }
+        } catch {
+            if report {
+                faultCopy = "The runout did not save. Try again."
             }
         }
     }
@@ -336,6 +481,8 @@ extension WallChrome {
         chrome.showingOnboarding = false
         chrome.focusedID = DemoIDs.kindOfBlue
         chrome.fuseNote = chrome.document.notes[DemoIDs.kindOfBlue] ?? ""
+        chrome.platterSide = .a
+        chrome.fuseRunout = chrome.document.inscription(for: DemoIDs.kindOfBlue, side: .a)
         return chrome
     }
 }

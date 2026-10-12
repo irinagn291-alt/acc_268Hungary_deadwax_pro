@@ -8,6 +8,7 @@ struct SleeveTile: View {
     let focused: Bool
     let pulse: Bool
     var prominent: Bool = false
+    var runoutRead: Bool = false
     @ScaledMetric(relativeTo: .body) private var captionBlock = Bloom.Rhythm.steps(10)
 
     var body: some View {
@@ -104,6 +105,11 @@ struct SleeveTile: View {
     private func sleeve(art: CGFloat) -> some View {
         ZStack(alignment: .topTrailing) {
             SleeveFront(urlString: pressing.sleeveFrontURL, corner: Bloom.Bend.chip)
+            if runoutRead && pressing.groove == .grooved {
+                DeadwaxBead(span: Bloom.Rhythm.steps(3))
+                    .padding(Bloom.Rhythm.unit)
+                    .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topLeading)
+            }
             grooveBadge
                 .padding(Bloom.Rhythm.unit)
         }
@@ -143,6 +149,9 @@ struct SleeveTile: View {
         parts.append(pressing.groove == .mint ? "Mint" : "Grooved")
         if pressing.groove == .grooved {
             parts.append("\(PhonographFigures.whole(plays)) plays")
+            if runoutRead {
+                parts.append("deadwax read")
+            }
         }
         return parts.joined(separator: ", ")
     }

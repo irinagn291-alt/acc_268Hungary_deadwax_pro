@@ -173,6 +173,7 @@ struct PlayTileBoard: View {
     let pulse: Bool
     let plays: (UUID) -> Int
     let grade: (UUID) -> Int?
+    var runoutRead: (UUID) -> Bool = { _ in false }
     let onPick: (Pressing) -> Void
 
     var body: some View {
@@ -191,7 +192,8 @@ struct PlayTileBoard: View {
                                 grade: grade(pressing.id),
                                 focused: pressing.id == focused,
                                 pulse: pulse,
-                                prominent: index == 0
+                                prominent: index == 0,
+                                runoutRead: runoutRead(pressing.id)
                             )
                         }
                         .buttonStyle(TilePress())

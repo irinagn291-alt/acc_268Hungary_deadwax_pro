@@ -8,7 +8,7 @@ struct SleeveOnboarding: View {
     private let pages: [(art: String, title: String, line: String)] = [
         ("dwx_Onboarding1", "Your played crate lives on this wall.", "Search or scan a pressing onto a sleeve. Home is the wall, not a title list."),
         ("dwx_Onboarding2", "Tap a sleeve to Drop the needle.", "Search writes Mint. Drop writes a GrooveMark and flips that copy to Grooved."),
-        ("dwx_Onboarding3", "Grade what you heard.", "Taste folds Grooved grades by genre and label. Unplayed Mint stays off taste."),
+        ("dwx_Onboarding3", "Grade what you heard.", "Taste folds Grooved grades by genre and label. Read the deadwax on a played copy. Unplayed Mint stays off taste."),
     ]
 
     var body: some View {
